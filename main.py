@@ -1,4 +1,4 @@
-#defining values of roman letters
+#defining values numbers to roman letters
 roman_letter_convert = {
     1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX",
     10: "X", 20: "XX", 30: "XXX", 40: "XL", 50: "L", 60: "LX", 70: "LXX", 80: "LXXX", 90: "XC",
@@ -6,19 +6,11 @@ roman_letter_convert = {
     1000: "M", 2000: "MM", 3000: "MMM"
 }
 
-number=input("Please enter a number to convert:")
-
-digit_list = [int(digit) for digit in str(number)]
-roman_list=[]
-
-def roman_convert(num):
-    digit_list = [int(digit) for digit in str(num)]
-    if len(digit_list)==4:
-        if digit_list[1]==3:
-            roman_list.append('MMM')
-        elif digit_list[1]==2:
-            roman_list.append('MM')
-        elif digit_list[1]==1:
-            roman_list.append('M')
+def int_to_roman(num):
+    roman_str = ""
     
+    thousands = (num // 1000) * 1000  
+    hundreds = (num % 1000 // 100) * 100  
+    tens = (num % 100 // 10) * 10 
+    ones = num % 10  
 
