@@ -7,11 +7,12 @@ roman_letters = {
 }
 
 def int_to_roman(num):
-    if not (0 < num < 4000): 
-        raise ValueError
-    
+    if num < 1 or num > 3999:
+    raise ValueError("Number must be between 1 and 3999")
+
     roman_string = ""
     
+ 
     thousands = (num // 1000) * 1000  
     hundreds = (num % 1000 // 100) * 100  
     tens = (num % 100 // 10) * 10 
