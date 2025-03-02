@@ -12,12 +12,14 @@ def int_to_roman(num):
 
     roman_string = ""
     
- 
+# Thousands, hundreds, tens, and ones are isolated to find them to Roman numeral equivalents
     thousands = (num // 1000) * 1000  
     hundreds = (num % 1000 // 100) * 100  
     tens = (num % 100 // 10) * 10 
     ones = num % 10  
 
+ # Converting each place value to its Roman numeral equivalent
+    # and appending it to the final Roman numeral string
     if thousands in roman_letters:
         roman_string += roman_letters[thousands]
     if hundreds in roman_letters:
@@ -27,5 +29,6 @@ def int_to_roman(num):
     if ones in roman_letters:
         roman_string += roman_letters[ones]
 
+ # Returning the final string
     return roman_string
 
