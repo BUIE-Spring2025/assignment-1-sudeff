@@ -1,4 +1,4 @@
-#defining values numbers to roman letters
+# Defining values for numbers to Roman letters
 roman_letters = {
     1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX",
     10: "X", 20: "XX", 30: "XXX", 40: "XL", 50: "L", 60: "LX", 70: "LXX", 80: "LXXX", 90: "XC",
@@ -7,29 +7,14 @@ roman_letters = {
 }
 
 def int_to_roman(num):
-# constraint 1 <= num <= 3999
+    # Constraint: 1 <= num <= 3999
     if num < 1 or num > 3999:
         raise ValueError("Number must be between 1 and 3999")
 
-    roman_string = ""
-    
-# Thousands, hundreds, tens, and ones are isolated to find them to Roman numeral equivalents
-    thousands = (num // 1000) * 1000  
-    hundreds = (num % 1000 // 100) * 100  
-    tens = (num % 100 // 10) * 10 
-    ones = num % 10  
-
- # Converting each place value to its Roman numeral equivalent
-    # and appending it to the final Roman numeral string
-    if thousands in roman_letters:
-        roman_string += roman_letters[thousands]
-    if hundreds in roman_letters:
-        roman_string += roman_letters[hundreds]
-    if tens in roman_letters:
-        roman_string += roman_letters[tens]
-    if ones in roman_letters:
-        roman_string += roman_letters[ones]
-
- # Returning the final string
-    return roman_string
-
+    #Building the Roman numeral string using dictionary lookups
+    return (
+        roman_letters.get((num // 1000) * 1000, "") +
+        roman_letters.get((num % 1000 // 100) * 100, "") +
+        roman_letters.get((num % 100 // 10) * 10, "") +
+        roman_letters.get(num % 10, "")
+    )
